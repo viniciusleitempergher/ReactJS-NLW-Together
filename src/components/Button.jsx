@@ -1,8 +1,11 @@
 import '../styles/button.scss'
 
-function Button(props) {
+function Button({ isOutlined = false, ...props }) {
   return (
-    <button className="button" {...props} />
+    <button
+      className={`button ${isOutlined ? 'outlined' : ''}`}
+      {...props}
+    />
   )
 }
 
