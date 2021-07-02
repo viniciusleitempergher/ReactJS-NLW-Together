@@ -3,10 +3,12 @@ import "../styles/question.scss"
 function Question({
   content,
   author,
-  children
+  isAnswered = false,
+  isHighLighted = false,
+  children,
 }) {
   return (
-    <div className="question">
+    <div className={`question ${isAnswered ? 'answered' : ''} ${(isHighLighted && !isAnswered) ? 'highlighted' : ''}`}>
       <p>{content}</p>
       <footer>
         <div className="user-info">
@@ -14,7 +16,7 @@ function Question({
           <span>{author.name}</span>
         </div>
         <div>
-          { children }
+          {children}
         </div>
       </footer>
     </div>
